@@ -35,6 +35,7 @@ public class UserController {
     private final EmailService emailService;
     private final PasswordEncoder passwordEncoder;
     private final AppointmentRepository appointmentRepository;
+    private final AppointmentService appointmentService;
 
     @GetMapping(value = "/login")
     public String showLoginPage() {
@@ -118,9 +119,11 @@ public class UserController {
     @GetMapping("/schedule")
     public String appointmentSchedule(Principal principal, Model model) {
         User user = userService.findByPhoneNumber(principal.getName());
+        List<AppointmentDto> appointmentList = appointmentService.getAppointment();
         Appointment appointment = new Appointment();
         appointment.setUser(user);
         model.addAttribute("appointment", appointment);
+        model.addAttribute("appointments", appointmentList);
         return "scheduler";
     }
 
