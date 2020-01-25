@@ -246,10 +246,11 @@
         const appointmentTimeInput = document.querySelectorAll('.appointmentDataPicker input[name="appointmentTime"]');
         const submitButton = document.querySelector('#apptForm fieldset.submit');
         const cancelButton = document.querySelector('#apptForm .cancel-btn');
+        const userNameInput = document.querySelector('#apptForm .form-group');
 
         appointmentTimeInput.forEach(item => {
             item.addEventListener('change', () => {
-                document.querySelector('#apptForm .form-group').removeAttribute('style');
+                userNameInput.removeAttribute('style');
                 submitButton.removeAttribute('style');
                 cancelButton.removeAttribute('style');
             })
@@ -289,6 +290,7 @@
                 myCalendar.update();
                 submitButton.style.display = 'none';
                 cancelButton.style.display = 'none';
+                userNameInput.style.display = 'none';
             },
             onSelect: () => {
                 document.querySelector('.appointmentTimeButtons').removeAttribute('style');
