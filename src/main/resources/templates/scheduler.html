@@ -280,6 +280,16 @@
             weekStart: 1,
             disableDates: offsetDate.concat(disableDates),
             langFolder: '../static/assets/langs/',
+            onNavigation: () => {
+                appointmentTimeInput.forEach(checkBox => {
+                    checkBox.disabled = true;
+                    checkBox.checked = false;
+                })
+                myCalendar.daysSelected = [];
+                myCalendar.update();
+                submitButton.style.display = 'none';
+                cancelButton.style.display = 'none';
+            },
             onSelect: () => {
                 document.querySelector('.appointmentTimeButtons').removeAttribute('style');
                 let selected = myCalendar.getDays();
