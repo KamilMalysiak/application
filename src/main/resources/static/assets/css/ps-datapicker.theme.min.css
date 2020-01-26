@@ -156,6 +156,12 @@
   }
 }
 
+@media screen and (max-width: 350px) {
+  .appointmentDataPicker {
+    width: 100%;
+  }
+}
+
 #content_page_wrapper .form-group {
   width: 350px;
   margin-left: auto;
