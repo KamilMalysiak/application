@@ -1,12 +1,18 @@
+#apptForm input, #apptForm button, #apptForm .cancel-btn, .ps-datapicker .prev, .ps-datapicker .next {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
 .ps-datapicker {
   width: 100%;
   margin: 0 auto;
   user-select: none;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 .ps-datapicker .navigation {
-  background-color: #0c5dd6;
+  background-color: darkorange;
   color: white;
   display: flex;
   flex-direction: row;
@@ -15,14 +21,13 @@
 }
 
 .ps-datapicker .prev, .ps-datapicker .next {
-  -webkit-appearance: none;
-  padding: 1em;
+  padding: 0.5em 1em;
   cursor: pointer;
 }
 
 .ps-datapicker .period {
   width: 100%;
-  font-size: 1.6em;
+  font-size: 1.2em;
   font-weight: 400;
   text-align: center;
 }
@@ -30,8 +35,9 @@
 .ps-datapicker .week {
   display: flex;
   color: #fff;
-  font-size: 1.2em;
-  background-color: #0a51ad;
+  font-size: 1em;
+  background-color: #7d1f23;
+  padding: 0;
 }
 
 .ps-datapicker .week.rtl {
@@ -54,7 +60,7 @@
   align-items: center;
   justify-content: center;
   width: 14.28571%;
-  padding: 1em;
+  padding: 0.5em 1em;
   transition: background-color 0.2s cubic-bezier(0.25, 0.1, 0.49, 0.9);
 }
 
@@ -72,15 +78,16 @@
 /* dzień dzisiejszy */
 
 .ps-datapicker .day.is-today {
-  background-color: #ff3860;
-  color: #fff;
+  background-color: grey;
+  color: black;
 }
 
 /* zaznaczony dzień */
 
 .ps-datapicker .day.is-selected {
-  background-color: #7fcbc3 !important;
+  background-color: #c12031 !important;
   color: #fff !important;
+  font-weight: 600 !important;
 }
 
 .ps-datapicker .day.is-begin-range, .ps-datapicker .day.is-end-range {
@@ -117,12 +124,13 @@
   text-align: center;
   cursor: pointer;
   border: rgba(85, 85, 85, 0.3) solid 1px;
+  transition: .3s;
 }
 
 /* zaznaczona godzina */
 
 .appointmentTimeButtons input[type="radio"]:checked+label {
-  background-color: #7fcbc3;
+  background-color: #c12031;
   color: white;
 }
 
@@ -130,13 +138,13 @@
 
 .appointmentTimeButtons input[type="radio"]:disabled+label {
   display: none !important;
-  /* background-color: rgb(199, 199, 199) !important; */
-  /* cursor: not-allowed !important; */
 }
 
 .appointment-button-group {
   width: 500px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 @media screen and (max-width: 768px) {
@@ -155,6 +163,12 @@
     font-size: 1.2rem;
     width: 30%;
   }
+  #apptForm .submit._4ORMAT_module_submit {
+    margin: 10px 0;
+  }
+  #content_page_wrapper .form-group {
+    max-width: 80%;
+  }
 }
 
 @media screen and (max-width: 350px) {
@@ -163,35 +177,35 @@
   }
 }
 
-#content_page_wrapper .form-group {
-  width: 350px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#content_page_wrapper .cancel-btn {
-  -webkit-appearance: none;
+#apptForm .cancel-btn {
   height: 49px;
   border-radius: 2px;
-  background-color: transparent;
-  color: inherit;
+  background-color: lightgray;
+  color: black;
   cursor: pointer;
-  margin-top: 10px;
   padding: 15px 30px;
   font-size: 1em;
   width: 100px;
   border: 1px solid rgba(85, 85, 85, 0.3);
   font-family: "Planet Light", "Planet Light", sans-serif;
-}
-
-#content_page_wrapper .cancel-btn:hover {
-  border-color: rgba(85, 85, 85, 0.4) !important;
-  background: rgba(85, 85, 85, 0.03) !important;
+  transition: .3s;
   text-decoration: none;
 }
 
-#apptForm input, #apptForm button {
-  -webkit-appearance: none;
+#apptForm .cancel-btn:hover {
+  border-color: rgba(85, 85, 85, 0.4) !important;
+  background: transparent !important;
+}
+
+#apptForm .form-group {
+  width: 350px;
+  margin: 10px auto;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+#apptForm {
+  min-width: 270px;
 }
 
 #apptForm h2 {
@@ -200,16 +214,34 @@
 
 #apptForm .submit._4ORMAT_module_submit {
   width: fit-content;
-  /* margin: 25px auto; */
 }
 
-.appointment-button-group {
-  display: flex;
-  justify-content: space-evenly;
+#apptForm .submit._4ORMAT_module_submit input {
+  background-color: #c12031;
+  color: white;
+  transition: .3s;
 }
 
-@media screen and (max-width: 768px) {
-  #content_page_wrapper .form-group {
-    max-width: 80%;
-  }
+#apptForm .submit._4ORMAT_module_submit input:hover {
+  background-color: transparent;
+  color: #c12031;
+  border-color: #c12031;
+}
+
+#apptForm .form-control-placeholder {
+  position: absolute;
+  top: 0;
+  margin-left: 10px;
+  margin-top: 15px;
+  padding: 0 5px 0 5px;
+  transition: all 200ms;
+  opacity: 0.7;
+  background-color: white;
+  z-index: 2;
+}
+
+#apptForm .form-control:focus+.form-control-placeholder, #apptForm .form-control:valid+.form-control-placeholder {
+  font-size: 75%;
+  transform: translate3d(0, -110%, 0);
+  opacity: 1;
 }
