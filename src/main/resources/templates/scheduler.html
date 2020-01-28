@@ -12,6 +12,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
     <script type="text/javascript" src="/static/assets/js/scheduler.js"></script>
 
 
@@ -181,7 +185,6 @@
 
     <script th:inline="javascript">
         const temp = /*[[${appointments}]]*/ null
-        console.log(temp)
     </script>
     <script>
         const today = new Date();
@@ -221,6 +224,7 @@
         })
 
         const myCalendar = new PSdatapicker({
+            nav: ['<i class="fa fa-arrow-left" aria-hidden="true"></i>', '<i class="fa fa-arrow-right" aria-hidden="true"></i>'],
             lang: 'pl',
             format: "yyyy-mm-dd",
             disablePastDays: true,
