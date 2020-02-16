@@ -80,12 +80,12 @@
           th:href="@{/static/assets/css/ps-datapicker.theme.min.css}">
 
     <style>
-        #content_page_wrapper .btn {
+        /* #content_page_wrapper .btn {
             font-family: "Planet Light", "Planet Light", sans-serif
             border-color: rgba(85, 85, 85, 0.4) !important;
             background: #c12031 !important;
             color: white !important;
-        }
+        } */
 
         #content_page_wrapper .btn:hover {
             border-color: #c12031 !important;
@@ -295,13 +295,17 @@
         }
     });
 
-    const disableDates = appointments.map(appointment => {
+    const appointmentsDates = appointments.map(appointment => {
         if (appointment.appointmentTime.indexOf("11:00:00") >= 0 && appointment.appointmentTime.indexOf("13:00:00") >= 0 && appointment.appointmentTime.indexOf("15:00:00") >= 0) {
             return appointment.appointmentDate;
         } else {
             return null;
         }
     })
+    const leaveDates = leave.map(date=>{
+        return date.leaveDate;
+    })
+    const disableDates = appointmentsDates.concat(leaveDates);
 
     const myCalendar = new PSdatapicker({
         lang: 'pl',

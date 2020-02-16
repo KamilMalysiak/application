@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"></html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <form action="#" th:action="@{/services/add-leave}" method="post">
+        <p>New leave: <input type="date" th:value="${leaveDate} " name="leaveDate" /></p>
+        <p><input type="submit" value="Add" /> <input type="reset" value="Reset" /></p>
+    </form>
+    <form action="#" th:action="@{/services/delete-leave}" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>ID</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${leave.empty}">
+                    <td colspan="3"> Empty </td>
+                </tr>
+                <tr th:each="leaveItem: ${leave}">
+                    <td><input th:type="checkbox" th:value="${leaveItem.id}" name="deleteIds"></td>
+                    <td th:text="${leaveItem.id}" />
+                    <td th:text="${leaveItem.leaveDate}" />
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" value="Delete" />
+    </form>
+</body>
+
+</html>
