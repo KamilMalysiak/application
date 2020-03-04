@@ -268,7 +268,7 @@
     const today = new Date();
     const offsetDate = [new Date(today), new Date(today), new Date(today)].map((date, index) => {
         date.setDate(date.getDate() + index);
-        return date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + date.getDate();
+        return date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate() + 1)).slice(-2);
     })
     const appointmentDataInput = document.querySelector('.appointmentDataPicker input[name="appointmentDate"]');
     const appointmentTimeInput = document.querySelectorAll('.appointmentDataPicker input[name="appointmentTime"]');
