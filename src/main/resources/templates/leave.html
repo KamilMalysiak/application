@@ -7,6 +7,9 @@
 </head>
 
 <body>
+    <form th:action="@{/appointments}" method="get">
+        <button class="btn btn-default" type="submit">Go to appointments</button>
+    </form>
     <form action="#" th:action="@{/services/add-leave}" method="post">
         <p>New leave: <input type="date" th:value="${leaveDate} " name="leaveDate" /></p>
         <p><input type="submit" value="Add" /> <input type="reset" value="Reset" /></p>
